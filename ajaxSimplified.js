@@ -5,6 +5,8 @@
    data : Data to be sent over via POST
    elm : Callback consumed within this element(optional)
 @ Response : JSON => HTML => || Redirection
+@ Author : Mukul Kumar Mishra
+@ URL : https://medium.com/@ellooper
 **/
 function callAjax(url, data, elm  = false){	 
 	$.ajax({
@@ -35,19 +37,3 @@ function callAjax(url, data, elm  = false){
 		}
 	})
 }
-
-/***
-@ Sample usage
-**/
-
-jQuery("a").on("click", function(e){
-		e.preventDefault();
-		var actions = ['login','register'];
-		if($(this).attr("action")){
-			var attr = $(this).attr("action");
-			callAjax(attr+"_ajax", attr+"_data", attr+"_msg");
-			return 0;
-		}
-		window.location.href = $(this).attr("href");
-	})	
-});
