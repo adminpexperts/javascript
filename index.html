@@ -1,0 +1,24 @@
+<form id="validateUser_data">
+	<input id="username" name="username" type="text" class="validate">
+	<input id="password" name="password" type="password" class="validate">		 
+	<a class="waves-effect waves-light btn-large btn-log-in" action="validateUser" href="#">Login</a>		 
+</form>
+
+<script src="./ajaxSimplified.js"></script>
+<script>
+/***
+@ Sample usage of ajaxSimplified
+**/
+
+jQuery("a").on("click", function(e){
+		e.preventDefault();
+		var actions = ['login','register'];
+		if($(this).attr("action")){
+			var attr = $(this).attr("action");
+			callAjax(attr+"_ajax", attr+"_data", attr+"_msg");
+			return 0;
+		}
+		window.location.href = $(this).attr("href");
+	})	
+});
+</script>
